@@ -1,3 +1,5 @@
+import ProjectVersions.openosrsVersion
+
 /*
  * Copyright (c) 2019 Owain van Brakel <https://github.com/Owain94>
  * All rights reserved.
@@ -23,10 +25,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-version = "1.0.1"
+version = "1.0.2"
 
-project.extra["PluginName"] = "Daeyalt Mining"
-project.extra["PluginDescription"] = "Better DaeyaltMining Something"
+project.extra["PluginName"] = "Aaaaa"
+project.extra["PluginDescription"] = "aaaaa aaaaa"
 
 tasks {
     jar {

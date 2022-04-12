@@ -1,5 +1,7 @@
 /*
- * Copyright (c) 2019 Owain van Brakel <https:github.com/Owain94>
+ * Copyright (c) 2018, Joris K <kjorisje@gmail.com>
+ * Copyright (c) 2018, Lasse <cronick@zytex.dk>
+ * Copyright (c) 2019, ermalsh <github.com/ermalsh>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -22,30 +24,34 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+package net.runelite.client.plugins.aaaaa;
 
-rootProject.name = "OpenOSRS Plugins"
+import java.time.Instant;
 
-include(":betterantidrag")
-include(":betterinterfacestyles")
-include(":betterprofiles")
-include(":betterroguesden")
-include(":friendtagging")
-include(":grounditemsextended")
-include(":highalchemy")
-include(":maxhit")
-include(":playerindicatorsextended")
-include(":reminders")
-include(":shayzieninfirmary")
-include(":stealingartefacts")
-include(":thieving")
-include(":aaaaa")
+import lombok.AccessLevel;
+import lombok.Getter;
 
-for (project in rootProject.children) {
-    project.apply {
-        projectDir = file(name)
-        buildFileName = "$name.gradle.kts"
+class AaaaaSession {
+    @Getter(AccessLevel.PACKAGE)
+    private Instant lastAaaaaAction;
+    @Getter(AccessLevel.PACKAGE)
+    private int successful;
+    @Getter(AccessLevel.PACKAGE)
+    private int failed;
 
-        require(projectDir.isDirectory) { "Project '${project.path} must have a $projectDir directory" }
-        require(buildFile.isFile) { "Project '${project.path} must have a $buildFile build script" }
+    void updateLastAaaaaAction() {
+        this.lastAaaaaAction = Instant.now();
+    }
+
+    void hasSucceeded() {
+        this.successful++;
+    }
+
+    void hasFailed() {
+        this.failed++;
+    }
+
+    double getSuccessRate() {
+        return ((double) getFailed() / (getSuccessful() + getFailed())) * 100;
     }
 }
