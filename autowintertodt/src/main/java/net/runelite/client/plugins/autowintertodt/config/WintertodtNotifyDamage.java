@@ -1,7 +1,5 @@
 /*
- * Copyright (c) 2018, Joris K <kjorisje@gmail.com>
- * Copyright (c) 2018, Lasse <cronick@zytex.dk>
- * Copyright (c) 2019, ermalsh <github.com/ermalsh>
+ * Copyright (c) 2020, loldudester <HannahRyanster@gmail.com>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -24,34 +22,22 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.runelite.client.plugins.aaaaa;
+package net.runelite.client.plugins.autowintertodt.config;
 
-import java.time.Instant;
-
-import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
-class AaaaaSession {
-    @Getter(AccessLevel.PACKAGE)
-    private Instant lastAaaaaAction;
-    @Getter(AccessLevel.PACKAGE)
-    private int successful;
-    @Getter(AccessLevel.PACKAGE)
-    private int failed;
+@Getter
+@RequiredArgsConstructor
+public enum WintertodtNotifyDamage {
+    OFF("Off"),
+    INTERRUPT("On Interrupt"),
+    ALWAYS("Always");
 
-    void updateLastAaaaaAction() {
-        this.lastAaaaaAction = Instant.now();
-    }
+    private final String name;
 
-    void hasSucceeded() {
-        this.successful++;
-    }
-
-    void hasFailed() {
-        this.failed++;
-    }
-
-    double getSuccessRate() {
-        return ((double) getFailed() / (getSuccessful() + getFailed())) * 100;
+    @Override
+    public String toString() {
+        return name;
     }
 }

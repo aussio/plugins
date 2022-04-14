@@ -1,5 +1,6 @@
 /*
- * Copyright (c) 2019 Owain van Brakel <https:github.com/Owain94>
+ * Copyright (c) 2018, terminatusx <jbfleischman@gmail.com>
+ * Copyright (c) 2018, Adam <Adam@sigterm.info>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -22,30 +23,20 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+package net.runelite.client.plugins.autowintertodt;
 
-rootProject.name = "OpenOSRS Plugins"
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
-include(":autowintertodt")
-include(":betterantidrag")
-include(":betterinterfacestyles")
-include(":betterprofiles")
-include(":betterroguesden")
-include(":friendtagging")
-include(":grounditemsextended")
-include(":highalchemy")
-include(":maxhit")
-include(":playerindicatorsextended")
-include(":reminders")
-include(":shayzieninfirmary")
-include(":stealingartefacts")
-include(":thieving")
+@AllArgsConstructor
+@Getter
+enum AutoWintertodtActivity {
+    IDLE("IDLE"),
+    WOODCUTTING("Woodcutting"),
+    FLETCHING("Fletching"),
+    FEEDING_BRAZIER("Feeding"),
+    FIXING_BRAZIER("Fixing"),
+    LIGHTING_BRAZIER("Lighting");
 
-for (project in rootProject.children) {
-    project.apply {
-        projectDir = file(name)
-        buildFileName = "$name.gradle.kts"
-
-        require(projectDir.isDirectory) { "Project '${project.path} must have a $projectDir directory" }
-        require(buildFile.isFile) { "Project '${project.path} must have a $buildFile build script" }
-    }
+    private final String actionString;
 }

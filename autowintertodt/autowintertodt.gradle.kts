@@ -1,5 +1,3 @@
-import ProjectVersions.openosrsVersion
-
 /*
  * Copyright (c) 2019 Owain van Brakel <https://github.com/Owain94>
  * All rights reserved.
@@ -25,10 +23,10 @@ import ProjectVersions.openosrsVersion
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-version = "1.0.2"
+version = "2.0.3"
 
-project.extra["PluginName"] = "Aaaaa"
-project.extra["PluginDescription"] = "aaaaa aaaaa"
+project.extra["PluginName"] = "Auto Wintertodt"
+project.extra["PluginDescription"] = ""
 
 tasks {
     jar {
