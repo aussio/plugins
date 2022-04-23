@@ -25,7 +25,6 @@
 
 rootProject.name = "OpenOSRS Plugins"
 
-include(":autowintertodt")
 include(":betterantidrag")
 include(":betterinterfacestyles")
 include(":betterprofiles")
@@ -39,6 +38,11 @@ include(":reminders")
 include(":shayzieninfirmary")
 include(":stealingartefacts")
 include(":thieving")
+// 
+include(":autowintertodt")
+include(":oneclick")
+include(":iutils")
+include(":ipowerfighter")
 
 for (project in rootProject.children) {
     project.apply {

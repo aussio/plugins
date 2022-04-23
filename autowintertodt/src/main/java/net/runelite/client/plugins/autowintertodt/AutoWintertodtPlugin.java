@@ -179,6 +179,7 @@ public class AutoWintertodtPlugin extends Plugin {
             return;
         }
 
+        // I wonder when you'd not find the player? Weird...
         int currentAnimation = client.getLocalPlayer() != null ? client.getLocalPlayer().getAnimation() : -1;
         if (currentAnimation != IDLE || lastActionTime == null) {
             return;
