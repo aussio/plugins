@@ -253,7 +253,7 @@ public class Spell extends ClickCompare {
             final Pair<Integer, Integer> pair = findItem(clickItem.getId());
 
             if (pair.getLeft() != -1) {
-                event.setMenuAction(MenuAction.ITEM_USE_ON_WIDGET);
+                event.setMenuAction(MenuAction.WIDGET_USE_ON_ITEM);
                 event.setId(pair.getLeft());
                 event.setActionParam(pair.getRight());
                 event.setWidgetId(WidgetInfo.INVENTORY.getId());

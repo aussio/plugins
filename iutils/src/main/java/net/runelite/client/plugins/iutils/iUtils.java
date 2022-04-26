@@ -696,14 +696,14 @@ public class iUtils extends Plugin {
                 menu.consumeClick = false;
                 return;
             }
-            if (menu.entry.getOption().equals("Walk here")) {
-                event.consume();
-                log.debug("Walk action: {} {}", walk.coordX, walk.coordY);
-                walk.walkTile(walk.coordX, walk.coordY);
-                walk.walkAction = false;
-                menu.entry = null;
-                return;
-            }
+            // if (menu.entry.getOption().equals("Walk here")) {
+            //     event.consume();
+            //     log.debug("Walk action: {} {}", walk.coordX, walk.coordY);
+            //     walk.walkTile(walk.coordX, walk.coordY);
+            //     walk.walkAction = false;
+            //     menu.entry = null;
+            //     return;
+            // }
             if (menu.modifiedMenu) {
                 client.setSelectedItemWidget(WidgetInfo.INVENTORY.getId());
                 client.setSelectedItemSlot(menu.modifiedItemIndex);

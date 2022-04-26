@@ -31,7 +31,8 @@ project.extra["PluginDescription"] = "Illumine - Powerfighter plugin"
 
 dependencies {
     compileOnly(project(":iutils"))
-    compileOnly(group = "com.owain.externals", name = "chinbreakhandler", version = "0.0.2+")
+    compileOnly(project(":chinbreakhandler"))
+    // compileOnly(group = "com.owain.externals", name = "chinbreakhandler", version = "0.0.2+")
 }
 
 tasks {

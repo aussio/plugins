@@ -23,9 +23,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-version = "2.0.3"
+version = "3.0.0"
 
-project.extra["PluginName"] = "Auto Wintertodt"
+project.extra["PluginName"] = "Woodcut Blisterwood Tree"
 project.extra["PluginDescription"] = ""
 
 tasks {

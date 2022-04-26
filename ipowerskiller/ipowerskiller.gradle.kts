@@ -1,6 +1,5 @@
 /*
- * Copyright (c) 2018, terminatusx <jbfleischman@gmail.com>
- * Copyright (c) 2018, Adam <Adam@sigterm.info>
+ * Copyright (c) 2019 Owain van Brakel <https://github.com/Owain94>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,22 +22,29 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.runelite.client.plugins.autowintertodt;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+version = "6.1.5"
 
-@AllArgsConstructor
-@Getter
-enum AutoWintertodtInterruptType {
-    COLD("Damaged by Wintertodt Cold"),
-    SNOWFALL("Damaged by Wintertodt Snowfall"),
-    BRAZIER("Brazier Shattered"),
-    INVENTORY_FULL("Inventory full of Bruma Roots"),
-    OUT_OF_ROOTS("Out of Bruma Roots"),
-    FIXED_BRAZIER("Fixed Brazier"),
-    LIT_BRAZIER("Lit Brazier"),
-    BRAZIER_WENT_OUT("Brazier went out");
+project.extra["PluginName"] = "Auss Skiller"
+project.extra["PluginDescription"] = "Here goes nothing"
 
-    private final String interruptSourceString;
+dependencies {
+    compileOnly(project(":iutils"))
+}
+
+tasks {
+    jar {
+        manifest {
+            attributes(mapOf(
+                    "Plugin-Version" to project.version,
+                    "Plugin-Id" to nameToId(project.extra["PluginName"] as String),
+                    "Plugin-Provider" to project.extra["PluginProvider"],
+                    "Plugin-Dependencies" to
+                            arrayOf(
+                                    nameToId("iUtils")).joinToString(),
+                    "Plugin-Description" to project.extra["PluginDescription"],
+                    "Plugin-License" to project.extra["PluginLicense"]
+            ))
+        }
+    }
 }

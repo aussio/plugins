@@ -28,7 +28,6 @@ package net.runelite.client.plugins.autowintertodt;
 import net.runelite.client.ui.overlay.OverlayMenuEntry;
 import net.runelite.client.ui.overlay.OverlayPanel;
 import net.runelite.client.ui.overlay.OverlayPosition;
-import net.runelite.client.ui.overlay.components.LineComponent;
 import net.runelite.client.ui.overlay.components.TitleComponent;
 
 import javax.inject.Inject;
@@ -59,22 +58,6 @@ class AutoWintertodtOverlay extends OverlayPanel {
         panelComponent.getChildren().add(TitleComponent.builder()
                 .text(plugin.getCurrentActivity().getActionString())
                 .color(plugin.getCurrentActivity() == AutoWintertodtActivity.IDLE ? Color.RED : Color.GREEN)
-                .build());
-
-        String inventoryString = plugin.getNumLogs() > 0 ? plugin.getInventoryScore() + " (" + plugin.getTotalPotentialinventoryScore() + ") pts" : plugin.getInventoryScore() + " pts";
-        panelComponent.getChildren().add(LineComponent.builder()
-                .left("Inventory:")
-                .leftColor(Color.WHITE)
-                .right(inventoryString)
-                .rightColor(plugin.getInventoryScore() > 0 ? Color.GREEN : Color.RED)
-                .build());
-
-        String kindlingString = plugin.getNumLogs() > 0 ? plugin.getNumKindling() + " (" + (plugin.getNumLogs() + plugin.getNumKindling()) + ")" : Integer.toString(plugin.getNumKindling());
-        panelComponent.getChildren().add(LineComponent.builder()
-                .left("Kindling:")
-                .leftColor(Color.WHITE)
-                .right(kindlingString)
-                .rightColor(plugin.getNumKindling() + plugin.getNumLogs() > 0 ? Color.GREEN : Color.RED)
                 .build());
 
         return super.render(graphics);

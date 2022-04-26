@@ -7,7 +7,7 @@ import net.runelite.api.coords.LocalPoint;
 import net.runelite.api.coords.WorldArea;
 import net.runelite.api.coords.WorldPoint;
 import net.runelite.client.plugins.iutils.scene.Position;
-import net.runelite.rs.api.RSClient;
+// import net.runelite.rs.api.RSClient;
 import okhttp3.*;
 
 import javax.inject.Inject;
@@ -53,14 +53,13 @@ public class WalkUtils {
      * Walks to a scene tile, must be accompanied with a click using it without
      * will cause a ban.
      **/
-    public void walkTile(int x, int y) {
-        RSClient rsClient = (RSClient) client;
-        rsClient.setSelectedSceneTileX(x);
-        rsClient.setSelectedSceneTileY(y);
-        rsClient.setViewportWalking(true);
-        rsClient.setCheckClick(false);
-    }
-
+    // public void walkTile(int x, int y) {
+    //     RSClient rsClient = (RSClient) client;
+    //     rsClient.setSelectedSceneTileX(x);
+    //     rsClient.setSelectedSceneTileY(y);
+    //     rsClient.setViewportWalking(true);
+    //     rsClient.setCheckClick(false);
+    // }
     public void sceneWalk(LocalPoint localPoint, int rand, long delay) {
         coordX = localPoint.getSceneX() + calc.getRandomIntBetweenRange(-Math.abs(rand), Math.abs(rand));
         coordY = localPoint.getSceneY() + calc.getRandomIntBetweenRange(-Math.abs(rand), Math.abs(rand));

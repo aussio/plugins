@@ -39,10 +39,12 @@ include(":shayzieninfirmary")
 include(":stealingartefacts")
 include(":thieving")
 // 
+include(":aussobjectindicator")
 include(":autowintertodt")
 include(":oneclick")
 include(":iutils")
-include(":ipowerfighter")
+include(":chinbreakhandler")
+include(":ipowerskiller")
 
 for (project in rootProject.children) {
     project.apply {

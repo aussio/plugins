@@ -33,10 +33,8 @@ import lombok.Getter;
 enum AutoWintertodtActivity {
     IDLE("IDLE"),
     WOODCUTTING("Woodcutting"),
-    FLETCHING("Fletching"),
-    FEEDING_BRAZIER("Feeding"),
-    FIXING_BRAZIER("Fixing"),
-    LIGHTING_BRAZIER("Lighting");
+    INVENTORY_FULL("Inventory Full"),
+    DROPPING("Dropping");
 
     private final String actionString;
-}
+    }
