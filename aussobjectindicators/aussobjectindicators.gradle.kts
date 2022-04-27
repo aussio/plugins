@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 Owain van Brakel <https:github.com/Owain94>
+ * Copyright (c) 2019 Owain van Brakel <https://github.com/Owain94>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,35 +23,21 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-rootProject.name = "OpenOSRS Plugins"
+version = "1.0.2"
 
-include(":betterantidrag")
-include(":betterinterfacestyles")
-include(":betterprofiles")
-include(":betterroguesden")
-include(":friendtagging")
-include(":grounditemsextended")
-include(":highalchemy")
-include(":maxhit")
-include(":playerindicatorsextended")
-include(":reminders")
-include(":shayzieninfirmary")
-include(":stealingartefacts")
-include(":thieving")
-// 
-include(":aussobjectindicators")
-include(":autowintertodt")
-include(":oneclick")
-include(":iutils")
-include(":chinbreakhandler")
-include(":ipowerskiller")
+project.extra["PluginName"] = "Auss Object Marker"
+project.extra["PluginDescription"] = "Object Markers extended"
 
-for (project in rootProject.children) {
-    project.apply {
-        projectDir = file(name)
-        buildFileName = "$name.gradle.kts"
-
-        require(projectDir.isDirectory) { "Project '${project.path} must have a $projectDir directory" }
-        require(buildFile.isFile) { "Project '${project.path} must have a $buildFile build script" }
+tasks {
+    jar {
+        manifest {
+            attributes(mapOf(
+                    "Plugin-Version" to project.version,
+                    "Plugin-Id" to nameToId(project.extra["PluginName"] as String),
+                    "Plugin-Provider" to project.extra["PluginProvider"],
+                    "Plugin-Description" to project.extra["PluginDescription"],
+                    "Plugin-License" to project.extra["PluginLicense"]
+            ))
+        }
     }
 }

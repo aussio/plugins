@@ -1,5 +1,3 @@
-import ProjectVersions.openosrsVersion
-
 /*
  * Copyright (c) 2019 Owain van Brakel <https://github.com/Owain94>
  * Copyright (c) 2019 Ganom <https://github.com/Ganom>
@@ -26,7 +24,7 @@ import ProjectVersions.openosrsVersion
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-version = "7.1.1"
+version = "8.0.5"
 
 project.extra["PluginName"] = "OneClick"
 project.extra["PluginDescription"] = "OP One Click methods."

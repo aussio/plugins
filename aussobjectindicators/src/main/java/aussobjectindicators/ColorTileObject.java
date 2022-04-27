@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 Owain van Brakel <https:github.com/Owain94>
+ * Copyright (c) 2020, dekvall <https://github.com/dekvall>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -22,36 +22,30 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+package aussobjectindicators;
 
-rootProject.name = "OpenOSRS Plugins"
+import java.awt.Color;
+import lombok.RequiredArgsConstructor;
+import lombok.Value;
+import net.runelite.api.ObjectComposition;
+import net.runelite.api.TileObject;
 
-include(":betterantidrag")
-include(":betterinterfacestyles")
-include(":betterprofiles")
-include(":betterroguesden")
-include(":friendtagging")
-include(":grounditemsextended")
-include(":highalchemy")
-include(":maxhit")
-include(":playerindicatorsextended")
-include(":reminders")
-include(":shayzieninfirmary")
-include(":stealingartefacts")
-include(":thieving")
-// 
-include(":aussobjectindicators")
-include(":autowintertodt")
-include(":oneclick")
-include(":iutils")
-include(":chinbreakhandler")
-include(":ipowerskiller")
-
-for (project in rootProject.children) {
-    project.apply {
-        projectDir = file(name)
-        buildFileName = "$name.gradle.kts"
-
-        require(projectDir.isDirectory) { "Project '${project.path} must have a $projectDir directory" }
-        require(buildFile.isFile) { "Project '${project.path} must have a $buildFile build script" }
-    }
+/**
+ * Used to denote marked objects and their colors.
+ * Note: This is not used for serialization of object indicators; see
+ * {@link ObjectPoint}
+ */
+@Value
+@RequiredArgsConstructor
+class ColorTileObject {
+    private final TileObject tileObject;
+    /**
+     * Non-transformed object composition for the object
+     */
+    private final ObjectComposition composition;
+    /**
+     * Name to highlight for multilocs
+     */
+    private final String name;
+    private final Color color;
 }
